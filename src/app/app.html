@@ -1,0 +1,36 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h1>Ollama Chat</h1>
+    <p>Modelo: <strong>gemma:4b-it</strong></p>
+  </div>
+
+  <div class="chat-messages">
+
+
+    @for (msg of messages;track msg.text){
+    <div [class]="'message ' + msg.sender">
+      <div class="message-content">
+        {{ msg.text }}
+      </div>
+    </div>
+    }
+
+    @if(isLoading){
+    <div class="message bot">
+      <div class="message-content loading">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="chat-input">
+    <input [(ngModel)]="prompt" (keyup.enter)="sendPrompt()" placeholder="Escribe tu pregunta..."
+      [disabled]="isLoading" />
+    <button (click)="sendPrompt()" [disabled]="isLoading || !prompt.trim()">
+      Enviar
+    </button>
+  </div>
+</div>

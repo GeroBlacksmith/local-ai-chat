@@ -1,0 +1,136 @@
+/* Fuente y colores base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+}
+
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #4a6fa5;
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.chat-header p {
+  margin: 4px 0 0;
+  opacity: 0.9;
+}
+
+.chat-messages {
+  height: 500px;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+.message {
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  line-height: 1.4;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user .message-content {
+  background: #4a6fa5;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message.bot .message-content {
+  background: #e3e6ea;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+.loading {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #666;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+.chat-input {
+  display: flex;
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.chat-input button {
+  margin-left: 12px;
+  padding: 12px 20px;
+  background: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.chat-input button:hover {
+  background: #3a5a8f;
+}
+
+.chat-input button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
