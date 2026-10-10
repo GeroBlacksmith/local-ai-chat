@@ -1,4 +1,4 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -32,8 +32,8 @@ export class App {
     this.messages.push({ text: this.prompt, sender: 'user' });
 
     this.http
-      .post(`${HOST_URL}:${PORT}/ask`, {
-        question: this.prompt,
+      .post(`${HOST_URL}:${PORT}/chat`, {
+        message: this.prompt,
       })
       .subscribe({
         next: (res: any) => {
